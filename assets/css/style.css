@@ -1,0 +1,381 @@
+/* ==================================================
+   VARIABLES (DESIGN SYSTEM)
+================================================== */
+:root {
+    --bg-main: #f6f8fc;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --bg-glass-strong: rgba(255, 255, 255, 0.95);
+
+    --primary: #2563eb;
+    --primary-soft: rgba(37, 99, 235, 0.15);
+    --accent: #06b6d4;
+
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+
+    --border-light: #e2e8f0;
+    --radius: 18px;
+
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 20px 45px rgba(37, 99, 235, 0.25);
+}
+
+/* ==================================================
+   RESET & BASE
+================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    background:
+        radial-gradient(600px circle at top left, #e0f2fe, transparent),
+        radial-gradient(600px circle at top right, #ede9fe, transparent),
+        var(--bg-main);
+    color: var(--text-main);
+}
+
+/* ==================================================
+   LAYOUT
+================================================== */
+.main-content {
+    flex: 1;
+    padding: 30px 0;
+}
+/* NAVBAR - STYLE PRO COHÉRENT */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: linear-gradient(
+        180deg,
+        rgba(15, 32, 39, 0.95),
+        rgba(2, 6, 23, 0.95)
+    );
+
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* liens */
+.navbar .nav-link {
+    color: #e5e7eb !important;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #00c6ff !important;
+}
+
+/* logo */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* badge rôle */
+.badge.bg-gradient,
+.badge-role {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* bouton logout */
+.navbar .btn-outline-danger {
+    border-radius: 20px;
+    padding: 4px 10px;
+}
+
+/* mobile */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(2, 6, 23, 0.95);
+        padding: 12px;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+}
+
+/* ==================================================
+   AUTH (LOGIN / REGISTER)
+================================================== */
+.auth-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: var(--radius);
+    background: var(--bg-glass-strong);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    animation: slideUp 0.6s ease;
+}
+
+.auth-card h3 {
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* ==================================================
+   FORMS
+================================================== */
+.form-control {
+    border-radius: 14px;
+    border: 1px solid var(--border-light);
+    padding: 12px 16px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+/* ==================================================
+   BUTTONS
+================================================== */
+.btn-futur {
+    width: 100%;
+    padding: 14px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    transition: 0.3s;
+}
+
+.btn-futur:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ==================================================
+   DASHBOARD
+================================================== */
+.dashboard-title {
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* ==================================================
+   CARDS
+================================================== */
+.card {
+    background: var(--bg-glass);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card h2,
+.card h5 {
+    font-weight: 700;
+}
+
+/* ==================================================
+   BADGES
+================================================== */
+.badge-role,
+.badge.bg-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+/* ==================================================
+   TABLES
+================================================== */
+.table {
+    border-radius: 14px;
+    overflow: hidden;
+    color: var(--text-main);
+}
+
+.table thead {
+    background: #f1f5f9;
+}
+
+.table tbody tr:hover {
+    background: var(--primary-soft);
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+.footer {
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    padding: 16px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ==================================================
+   ANIMATIONS
+================================================== */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(37, 99, 235, 0.15),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.card:hover::before {
+    transform: translateX(100%);
+}
+.btn-futur {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-futur::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    transform: translateX(-100%);
+}
+
+.btn-futur:hover::after {
+    animation: shine 0.8s ease;
+}
+
+@keyframes shine {
+    to {
+        transform: translateX(100%);
+    }
+}
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.user-card {
+    transition: 0.3s ease;
+}
+
+.stat-card:hover,
+.user-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 198, 255, 0.25);
+}
+/* RESET GLOBAL */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR COLLÉE EN HAUT */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* ESPACE POUR LE CONTENU */
+body {
+    padding-top: 72px; /* hauteur navbar */
+}
+/* ==========================
+   TOAST FUTURISTE
+========================== */
+
+.toast {
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 198, 255, 0.35);
+    animation: toastSlide 0.5s ease;
+}
+
+.toast-body {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+

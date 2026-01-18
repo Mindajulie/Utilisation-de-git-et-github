@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   bonjour 
-</body>
-</html>
+<?php
+session_start();
+
+/* DEBUG TEMPORAIRE (IMPORTANT) */
+if (!isset($_SESSION)) {
+    die("Session non démarrée");
+}
+
+/* Non connecté */
+if (!isset($_SESSION["user_id"])) {
+    header("Location: /biblio/auth/login.php");
+    exit;
+}
+
+/* Admin */
+if ($_SESSION["role"] === "admin") {
+    header("Location: /biblio/dashboard/admin/index.php");
+    exit;
+}
+
+/* User */
+header("Location: /biblio/dashboard/user/index.php");
+exit;
